@@ -21,6 +21,7 @@ public class ExtractTextWithIText {
 	private Map<String, Integer> possibleTitle = new HashMap<String, Integer>();
 	private String assumedTitle;
 	private int pageCount;
+	private String contentText;
 	private List<PageInfo> pageInfoList = new ArrayList<PageInfo>();
 
 	public List<SubTitle> exractTitles(InputStream is) throws IOException{
@@ -65,10 +66,10 @@ public class ExtractTextWithIText {
 	            }
 	            sb.append(temp).append("\n");
 	        }
-	        
+	    contentText = sb.toString();    
 	    String title = findTitle();
 		
-		return getTitlWithSubTitle(title, sb.toString());
+		return getTitlWithSubTitle(title, contentText);
 	}
 	
 	private String findTitle(){
